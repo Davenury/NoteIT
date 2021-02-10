@@ -49,6 +49,9 @@ export class ActionsButtons extends react.Component {
                     window.location.reload(false);
                 })
         })
+        xhr.addEventListener('error', () => {
+            swal("Something went wrong!", "We're sorry, but something went wrong, please contact administrator", "error")
+        })
         xhr.open('POST', this.props.note.baseURL + 'delete_note/' + this.props.note.id)
         xhr.send()
         this.toggleDeletePopup()
